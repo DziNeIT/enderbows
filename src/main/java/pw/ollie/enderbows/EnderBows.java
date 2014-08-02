@@ -34,11 +34,11 @@ public final class EnderBows extends AlbPlugin implements Listener {
     public void onEnable() {
         register(this);
 
-        int val = getConfig().getInt("fall-damage", -1);
-        if (val == -1) {
+        fallDamage = getConfig().getInt("fall-damage", -1);
+        if (fallDamage == -1) {
             getConfig().set("fall-damage", "4");
             saveConfig();
-            val = 4;
+            fallDamage = 4;
         }
     }
 
