@@ -1,0 +1,4 @@
+name: EnderBows
+version: 1.0.0
+description: Uses ender pearls to teleport people who shoot bows
+main: pw.ollie.enderbows.EnderBows

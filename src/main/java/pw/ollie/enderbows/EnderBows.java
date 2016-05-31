@@ -1,6 +1,8 @@
 package pw.ollie.enderbows;
 
-import pw.ian.albkit.AlbPlugin;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -13,12 +15,9 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
-
-public final class EnderBows extends AlbPlugin implements Listener {
+public final class EnderBows extends JavaPlugin implements Listener {
     /**
      * The players who have recently shot an ender bow - used for cancelling
      * fall damage on landing
@@ -32,7 +31,7 @@ public final class EnderBows extends AlbPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        register(this);
+        this.getServer().getPluginManager().registerEvents(this, this);
 
         fallDamage = getConfig().getInt("fall-damage", -1);
         if (fallDamage == -1) {
